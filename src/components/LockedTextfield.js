@@ -9,7 +9,8 @@ class LockedTextfield extends Component {
   render() {
     return (
       <div className="LockedTextfield">
-        <p>Låst textfält</p>
+        <h3>Låst textfält</h3>
+
       </div>
     );
   }

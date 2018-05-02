@@ -5,18 +5,25 @@ De andra komponenterna ska finnas i olika flikar.
 */
 
 import React, { Component } from 'react';
-
-import Login from './Login.js'
-import LockedTextfield from './LockedTextfield.js'
-import CeasarCipher from './CeasarCipher.js'
+import '../Tabs.css';
 
 class Tabs extends Component {
   render() {
     return (
       <div className="Tabs">
-        <Login />
-        <LockedTextfield />
-        <CeasarCipher />
+        {React.Children.map(this.props.children, (child, i) => {
+          //Set active styling
+          let styles = 'TabsBtn';
+          if (child.key === this.props.active) {
+            styles = `${styles} TabsBtn--active`;
+          }
+          return (
+            <button
+              className={styles}
+              onClick={() => {this.props.onChange(child.key);}}>{child}
+            </button>
+          );
+        })}
       </div>
     );
   }

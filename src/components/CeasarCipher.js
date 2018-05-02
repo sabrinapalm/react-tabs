@@ -10,7 +10,7 @@ class CeasarCipher extends Component {
   render() {
     return (
       <div className="CeasarCipher">
-        <p>Kryptering - Caesar cipher</p>
+        <h3>Kryptering - Caesar cipher</h3>
       </div>
     );
   }

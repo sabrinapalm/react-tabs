@@ -1,0 +1,17 @@
+.TabsBtn {
+  background-color: #EFF0F4;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  width: 180px;
+  font-size: 1.1em;
+  font-family: 'Calibri'
+}
+
+.TabsBtn:hover, .TabsBtn--active {
+  border-bottom: 3px solid #333;
+}
