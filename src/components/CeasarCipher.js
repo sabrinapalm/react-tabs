@@ -12,46 +12,37 @@ class CeasarCipher extends Component {
   constructor() {
     super();
     this.state = {
-      alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Å', 'Ä', 'Ö'],
-      decodedArr: [],
-      value: '',
-      encrypted: '',
-
+      str: '',
+      newStr: '',
+      strArray: [],
     }
   }
 
   changeValue = (event) => {
-    console.log(event.key)
-    //Set to uppercase
-    this.setState({value: event.key.toUpperCase()})
-    console.log(this.state.value);
+    let alphabet = 'abcdefghijklmnopqrstuvwxyzåöä'.split('');
+    let currentLetter = event.target.value;
 
+      for (let i = 0; i < alphabet.length; i++) {
+        if (currentLetter === alphabet[i]) {
+          this.state.strArray.push(alphabet[i + 1]);
 
-    //make value to array
-
-    /*loop trough makeArr compare with alphabet array
-    for (let i = 0; i < codeArr.length; i++) {
-      if (this.state.alphabet.indexOf(codeArr[i]) === -1) {
-        this.state.decodedArr.push(codeArr[i]);
-      } else {
-        //if alphabet array matched with codeArr letters, push into new array
-        for (var j = 0; j < this.state.alphabet.length; j++) {
-          if (codeArr[i] === this.state.alphabet[j]) {
-            this.state.decodedArr.push(this.state.alphabet[j + 1]);
-          }
+          this.state.str = this.state.strArray.join('');
+          console.log(this.state.str);
         }
       }
     }
-    this.state.encrypted = this.state.decodedArr.join('')*/
-  }
+
 
   render() {
     return (
       <div className="CeasarCipher">
         <h3>Kryptering - Caesar cipher</h3>
         <form>
-          <textarea value={this.state.value} onKeyPress={this.changeValue.bind(this)} />
+          <textarea value={this.state.str} onChange={this.changeValue} />
       </form>
+      <div>
+        <span>{this.state.str}</span>
+      </div>
       </div>
     );
   }

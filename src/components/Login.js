@@ -25,7 +25,9 @@ const styles = {
 class Login extends Component {
   constructor() {
     super();
-    this.state = {clicked: true}
+    this.state = {
+      clicked: true
+    }
   }
 
 
