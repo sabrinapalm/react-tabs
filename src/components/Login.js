@@ -34,7 +34,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h3>Login</h3>
         <button
         style={styles.button}
         onClick={() => this.setState({clicked: !this.state.clicked})}> {

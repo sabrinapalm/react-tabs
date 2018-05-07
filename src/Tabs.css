@@ -1,5 +1,5 @@
 .TabsBtn {
-  background-color: #EFF0F4;
+  background-color: #F2F2F0;
   border: none;
   display: inline-block;
   text-align: center;
@@ -13,5 +13,5 @@
 }
 
 .TabsBtn:hover, .TabsBtn--active {
-  border-bottom: 3px solid #333;
+  border-bottom: 3px solid #393E46;
 }

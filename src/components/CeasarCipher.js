@@ -19,15 +19,27 @@ class CeasarCipher extends Component {
   }
 
   changeValue = (event) => {
+    //turn alphabet string to array
     let alphabet = 'abcdefghijklmnopqrstuvwxyzåöä'.split('');
-    let currentLetter = event.target.value;
+    let currentLetter = event.key;
 
       for (let i = 0; i < alphabet.length; i++) {
+        //check spacebutton
+        if (currentLetter === ' ') {
+          this.state.strArray.push(' ')
+        }
+
+        //if it's a letter, compare with alphabet array, add 1 if so
         if (currentLetter === alphabet[i]) {
           this.state.strArray.push(alphabet[i + 1]);
 
+          //turn array to string
           this.state.str = this.state.strArray.join('');
-          console.log(this.state.str);
+
+          //store the value, then setstate
+          const value = this.state.str;
+          this.setState({str: value})
+
         }
       }
     }
@@ -36,9 +48,8 @@ class CeasarCipher extends Component {
   render() {
     return (
       <div className="CeasarCipher">
-        <h3>Kryptering - Caesar cipher</h3>
         <form>
-          <textarea value={this.state.str} onChange={this.changeValue} />
+          <textarea value={this.state.str} onKeyPress={this.changeValue} />
       </form>
       <div>
         <span>{this.state.str}</span>

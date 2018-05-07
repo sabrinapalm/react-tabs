@@ -24,7 +24,6 @@ class LockedTextfield extends Component {
   render() {
     return (
       <div className="LockedTextfield">
-        <h3>Låst textfält</h3>
         <input type="checkbox" onChange={this.makeEdit} />
         <label htmlFor="name">Name</label>
         <form>
