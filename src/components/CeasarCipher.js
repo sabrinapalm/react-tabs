@@ -6,7 +6,7 @@ Z ersätts med A. Exempel: användaren skriver "aqz", textfältet innehåller "b
 
 import React, { Component } from 'react';
 
-import '../CeasarCipher.css';
+import '../css/CeasarCipher.css';
 
 class CeasarCipher extends Component {
   constructor() {
@@ -19,37 +19,31 @@ class CeasarCipher extends Component {
   }
 
   changeValue = (event) => {
-    //turn alphabet string to array
-    let alphabet = 'abcdefghijklmnopqrstuvwxyzåöä'.split('');
-    let currentLetter = event.key;
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    let currentLetter = event.key.toLowerCase();
+    let charIndex = alphabet.indexOf(currentLetter);
+    let newChar;
 
-      for (let i = 0; i < alphabet.length; i++) {
-        //check spacebutton
-        if (currentLetter === ' ') {
-          this.state.strArray.push(' ')
-        }
-
-        //if it's a letter, compare with alphabet array, add 1 if so
-        if (currentLetter === alphabet[i]) {
-          this.state.strArray.push(alphabet[i + 1]);
-
-          //turn array to string
-          this.state.str = this.state.strArray.join('');
-
-          //store the value, then setstate
-          const value = this.state.str;
-          this.setState({str: value})
-
-        }
-      }
+    if( currentLetter == 'enter' ) {
+      newChar = "\n";
+    } else if ( currentLetter.length > 1 ) {
+      event.preventDefault();
+      return;
+    } else if( charIndex === -1 ) {
+      newChar = currentLetter;
+    } else {
+      charIndex = (charIndex + 1) % alphabet.length;
+      newChar = alphabet[charIndex];
     }
+    this.setState({ str: this.state.str + newChar });
+  }
 
 
   render() {
     return (
       <div className="CeasarCipher">
         <form>
-          <textarea value={this.state.str} onKeyPress={this.changeValue} />
+          <textarea value={this.state.str} onKeyDown={this.changeValue} />
       </form>
       <div>
         <span>{this.state.str}</span>

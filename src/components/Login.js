@@ -1,9 +1,3 @@
-/*
-Komponenten ska ha ett button-element med texten "login".
-Om man klickar på den ska texten ändras, för att visa att användaren blivit inloggad.
-Man ska kunna logga ut genom att klicka igen.
-*/
-
 import React, { Component } from 'react';
 
 //CSS

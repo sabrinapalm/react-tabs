@@ -1,11 +1,5 @@
-/*
-Den första komponenten ska vara en "tab component",
-alltså en komponent som visar olika innehåll beroende på vilken flik som är vald.
-De andra komponenterna ska finnas i olika flikar.
-*/
-
 import React, { Component } from 'react';
-import '../Tabs.css';
+import '../css/Tabs.css';
 
 class Tabs extends Component {
   render() {

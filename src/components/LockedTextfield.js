@@ -1,8 +1,3 @@
-/*
-Komponenten ska ha en kryssruta och ett textfält.
-Man ska bara kunna skriva i textfältet om kryssrutan är kryssad.
-*/
-
 import React, { Component } from 'react';
 
 class LockedTextfield extends Component {
@@ -24,11 +19,11 @@ class LockedTextfield extends Component {
   render() {
     return (
       <div className="LockedTextfield">
-        <input type="checkbox" onChange={this.makeEdit} />
+        <input id="name" type="checkbox" onChange={this.makeEdit} />
         <label htmlFor="name">Name</label>
-        <form>
-          <input type="text" name="name" disabled={this.state.disabled} />
-        </form>
+
+          <input type="text" disabled={this.state.disabled} />
+
       </div>
     );
   }
